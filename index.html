@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Angular Cascading Dropdown Multiselect Filtering</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Bootswatch CSS lib for paper theme-->
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.material.mobile.min.css" />
+
+    <link rel="stylesheet" href="app.css">
+
+</head>
+<body ng-cloak  ng-app="cascadingFilterApp">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">Angular Cascading Dropdown Multiselect Filtering</a>
+            </div>
+
+        </div>
+    </nav>
+
+	<div class="container"  ng-controller="MyCtrl">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="breadcrumb">
+                    <li class="active">Angular > Select > Checkbox Filtering</li>
+                </ul>
+
+                
+                <div>
+                    <div class="country-selection">
+                        <span>
+                            <i ng-if="!countryChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+                            <i ng-if="countryChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
+                        </span>&nbsp;
+                        
+                        <input kendo-drop-down-list
+                            id="countries"
+                            k-option-label="'select country'"
+                            k-data-text-field="'country'"
+                            k-data-value-field="'id'"
+                            k-ng-model="country"
+                            k-data-source="countrylist"
+                            k-on-change="countryChange(kendoEvent)" />
+                            
+                    </div>
+
+                    <br>
+
+                    <div class="state-selection">
+                        <span>
+                            <i ng-if="!stateChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+                            <i ng-if="stateChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
+                        </span>&nbsp;
+                        <input kendo-drop-down-list
+                            id="states"
+                            k-option-label="'select state'"
+                            k-data-text-field="'state'"
+                            k-data-value-field="'Id'"
+                            k-ng-model="state"
+                            k-cascade-from-field="'countryId'"
+                            k-cascade-from="'countries'"
+                            k-data-source="statelist" 
+                            k-on-change="stateChange(kendoEvent)" />
+                    </div>
+
+                    <br>
+
+                    <div class="city-selection">
+                        <span>
+                            <i ng-if="!cityChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+                            <i ng-if="cityChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
+                        </span>&nbsp;
+                        <input kendo-drop-down-list
+                            id="cities"
+                            k-option-label="'select city'"
+                            k-data-text-field="'city'"
+                            k-data-value-field="'Id'"
+                            k-ng-model="city"
+                            k-cascade-from-field="'stateId'"
+                            k-cascade-from="'states'"
+                            k-data-source="citylist" 
+                            k-on-change="cityChange(kendoEvent)" />
+                    </div>
+                    
+                    <br>
+                    <button ng-if="countryChosen && stateChosen && cityChosen" class="btn btn-success" ng-click="save()">  Save  </button>
+                </div>
+                
+                
+
+            </div>
+        </div>
+
+
+		
+	</div>
+
+	
+
+    <script src="https://kendo.cdn.telerik.com/2017.2.504/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.504/js/angular.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.504/js/kendo.all.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="services/app.service.js"></script>
+</body>
+</html>

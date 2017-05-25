@@ -1,0 +1,10 @@
+[
+    {"Id":1, "state":"Alaska", "countryId": 1},
+    {"Id":2, "state":"California", "countryId": 1},
+    {"Id":3, "state":"New York", "countryId": 1},
+    {"Id":4, "state":"New Brunswick", "countryId": 2},
+    {"Id":5, "state":"Manitoba", "countryId": 2},
+    {"Id":6, "state":"Delhi", "countryId": 3},
+    {"Id":7, "state":"Bombay", "countryId": 3},
+    {"Id":8, "state":"Calcutta", "countryId": 3}
+]
