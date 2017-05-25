@@ -1,0 +1,71 @@
+<div class="col-sm-12">
+    <ul class="breadcrumb">
+        <li class="active">Angular > Select > DrowdownList Filtering</li>
+    </ul>
+
+    
+    <div>
+        <div class="country-selection">
+            <span>
+                <i ng-if="!countryChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+                <i ng-if="countryChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
+            </span>&nbsp;
+            
+            <input kendo-drop-down-list
+                id="countries"
+                k-option-label="'select country'"
+                k-data-text-field="'country'"
+                k-data-value-field="'id'"
+                k-ng-model="country"
+                k-data-source="countrylist"
+                k-on-change="countryChange(kendoEvent)" />
+                
+        </div>
+
+        <br>
+
+        <div class="state-selection">
+            <span>
+                <i ng-if="!stateChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+                <i ng-if="stateChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
+            </span>&nbsp;
+            <input kendo-drop-down-list
+                id="states"
+                k-option-label="'select state'"
+                k-data-text-field="'state'"
+                k-data-value-field="'Id'"
+                k-ng-model="state"
+                k-cascade-from-field="'countryId'"
+                k-cascade-from="'countries'"
+                k-data-source="statelist" 
+                k-on-change="stateChange(kendoEvent)" />
+            
+            
+        </div>
+
+        <br>
+
+        <div class="city-selection">
+            <span>
+                <i ng-if="!cityChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+                <i ng-if="cityChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
+            </span>&nbsp;
+            <input kendo-drop-down-list
+                id="cities"
+                k-option-label="'select city'"
+                k-data-text-field="'city'"
+                k-data-value-field="'Id'"
+                k-ng-model="city"
+                k-cascade-from-field="'stateId'"
+                k-cascade-from="'states'"
+                k-data-source="citylist" 
+                k-on-change="cityChange(kendoEvent)" />
+        </div>
+        
+        <br>
+        <button ng-if="countryChosen && stateChosen && cityChosen" class="btn btn-success" ng-click="save()">  Save  </button>
+    </div>
+    
+    
+
+</div>

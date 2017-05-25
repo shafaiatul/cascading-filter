@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="cascadingFilterApp">
 <head>
 
 	<title>Angular Cascading Dropdown Multiselect Filtering</title>
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="app.css">
 
 </head>
-<body ng-cloak  ng-app="cascadingFilterApp">
+<body ng-cloak>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -31,80 +31,21 @@
                 <a class="navbar-brand" href="">Angular Cascading Dropdown Multiselect Filtering</a>
             </div>
 
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li ui-sref-active="active"><a ui-sref="cascadingDDL" >Cascading DDL</a></li>
+                    
+                    <li ui-sref-active="active"><a ui-sref="cascadingMS" >Cascading MS</a></li>
+                </ul>
+            </div>
+
         </div>
     </nav>
 
-	<div class="container"  ng-controller="MyCtrl">
+	<div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <ul class="breadcrumb">
-                    <li class="active">Angular > Select > Checkbox Filtering</li>
-                </ul>
-
-                
-                <div>
-                    <div class="country-selection">
-                        <span>
-                            <i ng-if="!countryChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-                            <i ng-if="countryChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
-                        </span>&nbsp;
-                        
-                        <input kendo-drop-down-list
-                            id="countries"
-                            k-option-label="'select country'"
-                            k-data-text-field="'country'"
-                            k-data-value-field="'id'"
-                            k-ng-model="country"
-                            k-data-source="countrylist"
-                            k-on-change="countryChange(kendoEvent)" />
-                            
-                    </div>
-
-                    <br>
-
-                    <div class="state-selection">
-                        <span>
-                            <i ng-if="!stateChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-                            <i ng-if="stateChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
-                        </span>&nbsp;
-                        <input kendo-drop-down-list
-                            id="states"
-                            k-option-label="'select state'"
-                            k-data-text-field="'state'"
-                            k-data-value-field="'Id'"
-                            k-ng-model="state"
-                            k-cascade-from-field="'countryId'"
-                            k-cascade-from="'countries'"
-                            k-data-source="statelist" 
-                            k-on-change="stateChange(kendoEvent)" />
-                    </div>
-
-                    <br>
-
-                    <div class="city-selection">
-                        <span>
-                            <i ng-if="!cityChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-                            <i ng-if="cityChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
-                        </span>&nbsp;
-                        <input kendo-drop-down-list
-                            id="cities"
-                            k-option-label="'select city'"
-                            k-data-text-field="'city'"
-                            k-data-value-field="'Id'"
-                            k-ng-model="city"
-                            k-cascade-from-field="'stateId'"
-                            k-cascade-from="'states'"
-                            k-data-source="citylist" 
-                            k-on-change="cityChange(kendoEvent)" />
-                    </div>
-                    
-                    <br>
-                    <button ng-if="countryChosen && stateChosen && cityChosen" class="btn btn-success" ng-click="save()">  Save  </button>
-                </div>
-                
-                
-
-            </div>
+            <ui-view></ui-view>
         </div>
 
 
@@ -117,7 +58,14 @@
     <script src="https://kendo.cdn.telerik.com/2017.2.504/js/angular.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2017.2.504/js/kendo.all.min.js"></script>
 
+    <!--Angualr Router cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+
     <script src="app.js"></script>
+    <!--Controller-->
+    <script src="controllers/cascading-ddl.ctrl.js"></script>
+    <script src="controllers/cascading-ms.ctrl.js"></script>
+    <!--Service-->
     <script src="services/app.service.js"></script>
 </body>
 </html>
