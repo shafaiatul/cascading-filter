@@ -1,0 +1,19 @@
+[
+    {"id": 1, "beverageId": 1,  "name": "Wine A", "category": "red"},
+    {"id": 2, "beverageId": 1,  "name": "Wine B", "category": "red"},
+    {"id": 3, "beverageId": 1,  "name": "Wine C", "category": "white"},
+    {"id": 4, "beverageId": 1,  "name": "Wine D", "category": "red"},
+    {"id": 5, "beverageId": 1,  "name": "Wine E", "category": "red"},
+    {"id": 6, "beverageId": 1,  "name": "Wine F", "category": "white"},
+    {"id": 7, "beverageId": 1,  "name": "Wine G", "category": "champagne"},
+    {"id": 8, "beverageId": 1,  "name": "Wine H", "category": "champagne"},    
+    {"id": 9, "beverageId": 2,  "name": "Pepsi sm", "category": "pepsi"},
+    {"id": 10, "beverageId": 2,  "name": "Pepsi md", "category": "pepsi"},
+    {"id": 11, "beverageId": 2,  "name": "Coke md", "category": "coke"},
+    {"id": 12, "beverageId": 2,  "name": "Pepsi lg", "category": "pepsi"},
+    {"id": 13, "beverageId": 2,  "name": "Pepsi xl", "category": "pepsi"},
+    {"id": 14, "beverageId": 2,  "name": "Coke lg", "category": "coke"},
+    {"id": 15, "beverageId": 2,  "name": "Lemonade Sugar free", "category": "lemonade"},
+    {"id": 16, "beverageId": 2,  "name": "Lemonade Regular", "category": "lemonade"}    
+]
+

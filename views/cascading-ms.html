@@ -3,6 +3,14 @@
         <li class="active">Angular > Select > MultiSelect Filtering</li>
     </ul>
 
+    <input kendo-drop-down-list
+                k-option-label="'select type'"
+                k-data-text-field="'type'"
+                k-data-value-field="'id'"
+                k-ng-model="beverageType"
+                k-data-source="beverageTypes"
+                k-on-change="beverageTypeChange(kendoEvent)" />
+
     <h3>Categories</h3>
     <div ng-repeat="category in getCategories()">
         <label>
@@ -11,10 +19,10 @@
         </label>
     </div>
     <hr />
-    <h3>Available Wines</h3>
-    <div ng-repeat="wine in wines | filter:filterByCategory as filteredWines">
-        {{ wine.name }} <i>({{ wine.category }})</i>
+    <h3>Available Beverages</h3>
+    <div ng-repeat="beverage in allBeverages | filter:filterByCategory as filteredBeverages">
+        {{ beverage.name }} <i>({{ beverage.category }})</i>
     </div>
     <hr />
-    <b>Number of results: {{ filteredWines.length }}</b>
+    <b>Number of results: {{ filteredBeverages.length }}</b>
 </div>

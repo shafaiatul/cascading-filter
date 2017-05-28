@@ -4,7 +4,7 @@
     .controller('cascadingDDL', function ($scope, allData) {
 
         // --------Country--------
-        $scope.countrylist = allData.getCountries().then(function(response) {
+        allData.getCountries().then(function(response) {
             $scope.countrylist = response.data;
         })
         
@@ -17,7 +17,7 @@
         }
        
        // ----------State----------
-        $scope.statelist = allData.getStates().then(function(response) {
+        allData.getStates().then(function(response) {
             $scope.statelist = response.data;
         })
 
@@ -30,7 +30,7 @@
         }
             
         // ----------City-----------
-        $scope.citylist = allData.getCities().then(function(response) {
+        allData.getCities().then(function(response) {
             $scope.citylist = response.data;
         })
 
