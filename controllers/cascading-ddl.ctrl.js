@@ -44,14 +44,14 @@
             
         
         // Save after all the filteration
-        $scope.save = function() {
+        $scope.submit = function() {
             var result = {            
                 Country: $scope.country,
                 State: $scope.state,
                 City: $scope.city,
             }
             console.log(JSON.stringify(result));
-                
+            $scope.result = result;  
         }
         
     })

@@ -3,26 +3,78 @@
         <li class="active">Angular > Select > MultiSelect Filtering</li>
     </ul>
 
-    <input kendo-drop-down-list
+    <div class="beverage-type">
+        <span>
+            <i ng-if="!beverageTypeChosen" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+            <i ng-if="beverageTypeChosen" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
+        </span>&nbsp;
+        <input kendo-drop-down-list
                 k-option-label="'select type'"
                 k-data-text-field="'type'"
                 k-data-value-field="'id'"
                 k-ng-model="beverageType"
                 k-data-source="beverageTypes"
                 k-on-change="beverageTypeChange(kendoEvent)" />
+    </div>
+    
+    <br>
 
-    <h3>Categories</h3>
-    <div ng-repeat="category in getCategories()">
-        <label>
-        <input type="checkbox" ng-model="filter[category]" />
-        {{ category }}
-        </label>
+    <div ng-if="beverageTypeChosen">
+        <div class="selected-catergories">
+            <p class="text-muted">
+                <span>
+                    <i ng-if="checked.nonDuplicateBeverageCategories.length <= 0" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+                    <i ng-if="checked.nonDuplicateBeverageCategories.length > 0" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
+                </span>&nbsp;
+                Categories
+            </p>
+
+            <div ng-repeat="category in getCategories()">
+                <label>
+                <input type="checkbox" 
+                    checklist-model="checked.nonDuplicateBeverageCategories" 
+                    checklist-value="category"
+                    ng-model="filter[category]" />
+                {{ category }}
+                </label>
+            </div>
+        </div>
+        
+        <hr />
+
+        <div class="selected-available-beverage">
+            <p class="text-muted">
+                <span>
+                    <i ng-if="checked.availableBeverages.length <= 0" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
+                    <i ng-if="checked.availableBeverages.length > 0" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
+                </span>&nbsp;
+                Available Beverages (<b>{{ filteredBeverages.length }} selected</b>)
+            </p>
+            <div ng-repeat="beverage in allBeverages | filter:filterByCategory as filteredBeverages">
+                
+                <label>
+                    <input type="checkbox" 
+                    data-checklist-model="checked.availableBeverages" 
+                    data-checklist-value="beverage" />
+                    {{ beverage.name }} <i>({{ beverage.category }})</i>
+                </label>
+            </div>
+        </div>
+        
+        <hr />
+        
     </div>
-    <hr />
-    <h3>Available Beverages</h3>
-    <div ng-repeat="beverage in allBeverages | filter:filterByCategory as filteredBeverages">
-        {{ beverage.name }} <i>({{ beverage.category }})</i>
+
+    <div class="row text-center" 
+        ng-if="checked.availableBeverages.length > 0 && checked.nonDuplicateBeverageCategories.length > 0">
+        
+        <button class="btn btn-primary" ng-click="submit()">Submit</button>
     </div>
-    <hr />
-    <b>Number of results: {{ filteredBeverages.length }}</b>
+
+    <br>
+    
+    <pre>
+    {{ result | json }}
+    </pre>
+    
 </div>

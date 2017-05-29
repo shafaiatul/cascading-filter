@@ -1,10 +1,13 @@
 var app = 
     angular
-    .module('cascadingFilterApp', ['kendo.directives', 'ui.router'])
-    .config(function($stateProvider, $urlRouterProvider) {
+    .module('cascadingFilterApp', ['kendo.directives', 'ui.router', 'checklist-model'])
+    .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.hashPrefix('');
 
     $urlRouterProvider.otherwise('/cascadingDDL');
     
+     
+
     var cascadingDDL = {
         name: 'cascadingDDL',
         url: '/cascadingDDL',

@@ -63,9 +63,14 @@
         </div>
         
         <br>
-        <button ng-if="countryChosen && stateChosen && cityChosen" class="btn btn-success" ng-click="save()">  Save  </button>
+        <button ng-if="countryChosen && stateChosen && cityChosen" class="btn btn-success" ng-click="submit()">Submit</button>
     </div>
     
+    <br>
+    
+    <pre>
+    {{ result | json }}
+    </pre>
     
 
 </div>
