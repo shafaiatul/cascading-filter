@@ -48,7 +48,7 @@
                     <i ng-if="checked.availableBeverages.length <= 0" class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
                     <i ng-if="checked.availableBeverages.length > 0" class="fa fa-check-circle fa-lg" aria-hidden="true" style="color: #00cc00"></i>
                 </span>&nbsp;
-                Available Beverages (<b>{{ filteredBeverages.length }} selected</b>)
+                Available Beverages (<b>{{ filteredBeverages.length }} Available</b>)
             </p>
             <div ng-repeat="beverage in allBeverages | filter:filterByCategory as filteredBeverages">
                 
@@ -72,7 +72,7 @@
     </div>
 
     <br>
-    
+
     <pre>
     {{ result | json }}
     </pre>
