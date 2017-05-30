@@ -1,11 +1,12 @@
 (function() {
     'use strict';
-    app.controller('cascadingMS', function($scope, allData, $timeout) {
+    app.controller('cascadingMS', function($scope, allData) {
 
+        // Initially none of the nonDuplicateBeverageCategories checkboxes are checked
         $scope.checked = {
             nonDuplicateBeverageCategories: []
         }
-
+        // Initially none of the availableBeverages checkboxes are checked
         $scope.checked = {
             availableBeverages: []
         }
@@ -29,7 +30,9 @@
         $scope.beverageTypeChosen = false;
         $scope.beverageTypeChange = function(e) {
             $scope.filter = {};
-            $scope.chosenBeverageType = []; 
+            $scope.chosenBeverageType = []; // reset the chosenBeverageType under nonDuplicateBeverageCategories
+            $scope.checked.nonDuplicateBeverageCategories = []; // reset the nonDuplicateBeverageCategories checkboxes
+            $scope.checked.availableBeverages = []; // reset the availableBeverages checkboxes
             $scope.beverageTypeChosen = true;
             
             if(e.sender.text() === 'select type') {
@@ -52,10 +55,10 @@
         
         // Functions - Public      
         $scope.filterByCategory = filterByCategory;
-        $scope.getCategories = getCategories;
         
         
         function filterByCategory(beverage) {
+            
             return $scope.filter[beverage.category];
         }
         // Gives the non duplicate categories from the chosenBeverageType 
