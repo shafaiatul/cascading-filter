@@ -22,8 +22,16 @@ var app =
         controller: 'cascadingMS'
     }
 
+    var customMS = {
+        name: 'customMS',
+        url: '/customMS',
+        templateUrl: 'views/custom-ms.html',
+        controller: 'customMS'
+    }
+
     $stateProvider.state(cascadingDDL);
     $stateProvider.state(cascadingMS);
+    $stateProvider.state(customMS);
 
     
 });

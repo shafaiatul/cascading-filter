@@ -1,0 +1,20 @@
+<br>
+  <div class="dropdown">
+    <button class="dropbtn" ng-class="user.roles.length === 0 ? 'shallow-select' : 'bright-select'">
+      {{user.roles.length === 0 ? 'Select...' : 'Selected'}}
+    </button>
+    <div class="dropdown-content">
+      <button class="checkAll-btn" ng-click="checkAll()">check all</button>
+      <button class="uncheckAll-btn" ng-click="uncheckAll()">uncheck all</button>
+      <br>
+      
+      <label ng-repeat="role in allPerson" class="control control--checkbox">
+        <input type="checkbox" checklist-model="user.roles" checklist-value="role.id">
+        <div class="control__indicator"></div>
+         {{role.text}}
+      </label>
+    </div>
+  </div>
+
+  <br><br>
+  user.roles {{ user.roles | json }}

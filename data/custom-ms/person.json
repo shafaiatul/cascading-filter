@@ -1,0 +1,18 @@
+[
+    {"id": 1, "text": "guest"},
+    {"id": 2, "text": "user"},
+    {"id": 3, "text": "customer"},
+    {"id": 4, "text": "admin"},
+    {"id": 5, "text": "Ben"},
+    {"id": 6, "text": "Suman"},
+    {"id": 7, "text": "Sam"},
+    {"id": 8, "text": "Jack"},
+    {"id": 9, "text": "Doe"},
+    {"id": 10, "text": "Kim"},
+    {"id": 11, "text": "Sal"},
+    {"id": 12, "text": "Sami"},
+    {"id": 13, "text": "Karim"},
+    {"id": 14, "text": "Salim"},
+    {"id": 15, "text": "Dev"},
+    {"id": 16, "text": "Dany"}
+  ]

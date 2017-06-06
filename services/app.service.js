@@ -20,6 +20,11 @@
             },
             getAllBeverages: function() {
                 return $http.get('./../data/ms/all-beverages.json')
+            },
+
+            //Custom MS
+            getPerson: function() {
+                return $http.get('./../data/custom-ms/person.json')
             }
         }
 
