@@ -29,7 +29,7 @@
                 Categories
             </p>
 
-            <div ng-repeat="category in getCategories()">
+            <div ng-repeat="category in nonDuplicateBeverageCategories">
                 <label>
                 <input type="checkbox" 
                     checklist-model="checked.nonDuplicateBeverageCategories" 
