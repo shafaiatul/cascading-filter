@@ -1,20 +1,29 @@
-<br>
-  <div class="dropdown">
-    <button class="dropbtn" ng-class="user.roles.length === 0 ? 'shallow-select' : 'bright-select'">
-      {{user.roles.length === 0 ? 'Select...' : 'Selected'}}
-    </button>
-    <div class="dropdown-content">
-      <button class="checkAll-btn" ng-click="checkAll()">check all</button>
-      <button class="uncheckAll-btn" ng-click="uncheckAll()">uncheck all</button>
-      <br>
-      
-      <label ng-repeat="role in allPerson" class="control control--checkbox">
-        <input type="checkbox" checklist-model="user.roles" checklist-value="role.id">
-        <div class="control__indicator"></div>
-         {{role.text}}
-      </label>
-    </div>
-  </div>
+<p class="lead">Angular Multiselect Dropdown <strong>On Hover</strong></p>
 
-  <br><br>
-  user.roles {{ user.roles | json }}
+<div class="row">
+  <div class="col-sm-4">
+
+    <div class="dropdown">
+      <button class="dropbtn" ng-class="user.roles.length === 0 ? 'shallow-select' : 'bright-select'">
+        {{user.roles.length === 0 ? '' : (user.roles.length === allPerson.length ? 'All' : user.roles.length)}} {{user.roles.length === 0 ? 'Select...' : 'Selected'}}
+      </button>
+      <div class="dropdown-content">
+        <button class="checkAll-btn" ng-click="checkAll()">check all</button>
+        <button class="uncheckAll-btn" ng-click="uncheckAll()">uncheck all</button>
+        <br>
+        
+        <label ng-repeat="role in allPerson" class="control control--checkbox">
+          <input type="checkbox" checklist-model="user.roles" checklist-value="role.id">
+          <div class="control__indicator"></div>
+          {{role.text}}
+        </label>
+      </div>
+    </div>
+
+    <br><br>
+    user.roles {{ user.roles | json }}
+
+  </div>
+  
+</div>
+  
