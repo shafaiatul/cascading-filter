@@ -1,6 +1,6 @@
 var app = 
     angular
-    .module('cascadingFilterApp', ['kendo.directives', 'ui.router', 'checklist-model'])
+    .module('cascadingFilterApp', ['kendo.directives', 'ui.router', 'checklist-model', 'ui.bootstrap.datetimepicker'])
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
 
@@ -29,9 +29,17 @@ var app =
         controller: 'customMS'
     }
 
+    var dateTimePicker = {
+        name: 'dateTimePicker',
+        url: '/dateTimePicker',
+        templateUrl: 'views/dateTimePicker.html',
+        controller: 'dateTimePicker'
+    }
+
     $stateProvider.state(cascadingDDL);
     $stateProvider.state(cascadingMS);
     $stateProvider.state(customMS);
+    $stateProvider.state(dateTimePicker);
 
     
 });

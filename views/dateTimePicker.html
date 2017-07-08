@@ -1,0 +1,23 @@
+<!--<p>Selected Date: {{ data.dateDropDownInput | date:'yyyy-MM-dd HH:mm a' }}</p>-->
+
+<div class="dropdown">
+    <a  class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" >
+        <div class="input-group">
+            <input type="text" class="form-control" 
+            data-ng-model="data.dateDropDownInput" 
+            placeholder="Start Time">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+        </div>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+        
+        <datetimepicker 
+            data-ng-model="data.dateDropDownInput" 
+            data-on-set-time="onTimeSet(newDate, oldDate)"
+            data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }">
+        </datetimepicker>
+    </ul>
+</div>
+

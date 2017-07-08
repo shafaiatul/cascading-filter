@@ -9,7 +9,10 @@
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Bootswatch CSS lib for paper theme-->
-    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--Bootstrap date picker-->
+    <link rel="stylesheet" href="lib/css/datetimepicker.css">
 
 	<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.common-material.min.css" />
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.504/styles/kendo.material.min.css" />
@@ -39,6 +42,8 @@
                     <li ui-sref-active="active"><a ui-sref="cascadingMS" >Cascading MS</a></li>
 
                     <li ui-sref-active="active"><a ui-sref="customMS" >Custom MS</a></li>
+
+                    <li ui-sref-active="active"><a ui-sref="dateTimePicker" >Date Time Picker</a></li>
                 </ul>
             </div>
 
@@ -57,6 +62,8 @@
 	
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="lib/js/moment.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2017.2.504/js/kendo.all.min.js"></script>
 
@@ -65,12 +72,17 @@
     <!--Checklist model js-->
     <script src="checklist-model.js"></script>
 
-
+    <!--Date picker lib -->
+    <script src="lib/js/datetimepicker.js"></script>
+    <script src="lib/js/datetimepicker.templates.js"></script>
+    
+    
     <script src="app.js"></script>
     <!--Controller-->
     <script src="controllers/cascading-ddl.ctrl.js"></script>
     <script src="controllers/cascading-ms.ctrl.js"></script>
     <script src="controllers/custom-ms.ctrl.js"></script>
+    <script src="controllers/date-time-picker.ctrl.js"></script>
     
     <!--Service-->
     <script src="services/app.service.js"></script>
