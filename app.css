@@ -64,6 +64,7 @@ p.text-muted {
 
 .dropdown {
   display: inline-block;
+  position: relative;
 }
 
 .dropdown-content {
@@ -84,8 +85,8 @@ p.text-muted {
     left: 0;
     width: 100%;
     transform: translateY(-2em);
-    z-index: -1;
-    transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    z-index: 10000;
+    transition: all 0.2s ease-in-out 0s, visibility 0s linear 0.2s, z-index 0s linear 0.01s;
     
 } 
 .dropbtn {
