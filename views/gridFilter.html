@@ -1,0 +1,20 @@
+<table style="width:100%;overflow: scroll; border: 2px solid #AAA; ">
+    <thead style="border-bottom: 1px solid #AAA">
+        <tr>
+            
+            <th style="width:50%">&nbsp;&nbsp;<input type='checkbox'/>&nbsp;&nbsp; catalog</th>
+            <th style="width:25%">currentVersion</th>
+            <th style="width:25%">new Version</th>
+        </tr>
+    </thead>
+    <tbody style="color: #007db8;">
+        <tr ng-repeat="item in items" ng-attr-id="item.id">
+            <td style="width:50%"> 
+                &nbsp;&nbsp;<input type='checkbox' ng-model="dummyModel[item.id]" ng-change="selectItem(item)"/>&nbsp;&nbsp;{{ item.catalog }}
+            </td>
+            <td style="width:25%">{{ item.currentVersion }}</td>
+            <td style="width:25%">{{ item.newVersion }}</td>
+        </tr>
+    </tbody>
+</table>
+<button style="font-size: 11px;" type="button" class="btn btn-primary" ng-click="update()" >Update</button>

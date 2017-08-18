@@ -36,10 +36,19 @@ var app =
         controller: 'dateTimePicker'
     }
 
+    var gridFilter = {
+        name: 'gridFilter',
+        url: '/gridFilter',
+        templateUrl: 'views/gridFilter.html',
+        controller: 'gridFilter'
+    }
+    
+
     $stateProvider.state(cascadingDDL);
     $stateProvider.state(cascadingMS);
     $stateProvider.state(customMS);
     $stateProvider.state(dateTimePicker);
+    $stateProvider.state(gridFilter);
 
     
 });

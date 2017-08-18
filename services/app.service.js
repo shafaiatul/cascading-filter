@@ -25,7 +25,14 @@
             //Custom MS
             getPerson: function() {
                 return $http.get('./../data/custom-ms/person.json')
+            },
+
+            //Grid Filter 
+            getGridData: function() {
+                return $http.get('./../data/grid-filter/gridFilter.json')
             }
+
+
         }
 
 
