@@ -1,20 +1,42 @@
-<table style="width:100%;overflow: scroll; border: 2px solid #AAA; ">
+<table class="table">
     <thead style="border-bottom: 1px solid #AAA">
         <tr>
             
-            <th style="width:50%">&nbsp;&nbsp;<input type='checkbox'/>&nbsp;&nbsp; catalog</th>
-            <th style="width:25%">currentVersion</th>
-            <th style="width:25%">new Version</th>
+            <th style="width:50%">&nbsp;&nbsp;
+                <button  type="button" class="btn btn-primary btn-sm" ng-click="checkAll()" >Check All</button>&nbsp;&nbsp;
+                <button  type="button" class="btn btn-danger btn-sm" ng-click="uncheckAll()" >UnCheck All</button>
+            </th>
+            <th style="width:50%">currentVersion</th>
+            
         </tr>
     </thead>
     <tbody style="color: #007db8;">
-        <tr ng-repeat="item in items" ng-attr-id="item.id">
+        <tr ng-repeat="provider in providers ">
             <td style="width:50%"> 
-                &nbsp;&nbsp;<input type='checkbox' ng-model="dummyModel[item.id]" ng-change="selectItem(item)"/>&nbsp;&nbsp;{{ item.catalog }}
+                    <label class="control control--checkbox">
+                        <input type="checkbox" data-checklist-model="user.providers" data-checklist-value="provider">
+                        <div class="control__indicator"></div>
+                        {{provider.ProviderName}}
+                    </label>
+                
             </td>
-            <td style="width:25%">{{ item.currentVersion }}</td>
-            <td style="width:25%">{{ item.newVersion }}</td>
-        </tr>
-    </tbody>
+            <td style="width: 50%">
+                    <div class="dropdown" >
+                        <button class="dropbtn" ng-class="user.reportTypes.length === 0 ? 'shallow-select' : 'bright-select'">
+                            {{user.reportTypes.length === 0 ? '' : (user.reportTypes.length === provider.reportTypes.length ? 'All' : user.reportTypes.length)}} {{user.reportTypes.length === 0 ? 'Select...' : 'Selected'}}
+                        </button>
+                        <div class="dropdown-content">
+                            <button class="checkAll-btn" ng-click="checkAllFilterTypes(provider.reportTypes)">check all</button>
+                            <button class="uncheckAll-btn" ng-click="uncheckAllFilterTypes()">uncheck all</button>
+                            <br>
+                            
+                            <label ng-repeat="reportType in provider.reportTypes track by $index" class="control control--checkbox">
+                                <input type="checkbox"  checklist-model="user.reportTypes" checklist-value="reportType.reportId">
+                                <div class="control__indicator"></div>
+                                {{reportType.type}}
+                            </label>
+                        </div>
+                    </div>
+            </td>
 </table>
-<button style="font-size: 11px;" type="button" class="btn btn-primary" ng-click="update()" >Update</button>
+<button  type="button" class="btn btn-primary" ng-click="Submit()" >Submit</button>
