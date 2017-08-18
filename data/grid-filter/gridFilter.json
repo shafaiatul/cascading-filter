@@ -1,23 +1,58 @@
 [
     {
-       "id": 1,
-       "name": "mit",
-       "catalog": "Multiple",
-       "currentVersion": "1.2",
-       "newVersion": "1.3"
+       "ProviderId": 1,
+       "ProviderName": "Innovid",
+       "reportTypes": [
+          {
+             "reportId": 1,
+             "type": "Standard"
+          },
+          {
+             "reportId": 2,
+             "type": "Floodlight"
+          }
+       ]
     },
     {
-       "id": 2,
-       "name": "mit",
-       "catalog": "Multiple",
-       "currentVersion": "1.2",
-       "newVersion": "1.3"
+       "ProviderId": 2,
+       "ProviderName": "Sizmek",
+       "reportTypes": [
+          {
+             "reportId": 1,
+             "type": "Standard"
+          },
+          {
+             "reportId": 3,
+             "type": "Cross Device Conversion"
+          }
+       ]
     },
     {
-       "id": 3,
-       "name": "mit",
-       "catalog": "Multiple",
-       "currentVersion": "1.2",
-       "newVersion": "1.3"
+       "ProviderId": 3,
+       "ProviderName": "DFS",
+       "reportTypes": [
+          {
+             "reportId": 1,
+             "type": "Standard"
+          },
+          {
+             "reportId": 2,
+             "type": "Floodlight"
+          }
+       ]
+    },
+    {
+       "ProviderId": 4,
+       "ProviderName": "Facebook",
+       "reportTypes": [
+          {
+             "reportId": 2,
+             "type": "Floodlight"
+          },
+          {
+             "reportId": 3,
+             "type": "Cross Device Conversion"
+          }
+       ]
     }
  ]
