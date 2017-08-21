@@ -5,7 +5,7 @@
       allData.getGridData().then( (response) => {
         $scope.providers = response.data;
       })
-      
+      $scope.result = {};
       $scope.user = {
         providers: []
       };
@@ -21,21 +21,33 @@
           reportTypes: []
       };
       
-      $scope.checkAllFilterTypes = function(d) {
-        console.log(d);
-          $scope.user.reportTypes = d.map(function(item) { return item.reportId; });
-      };
-      $scope.uncheckAllFilterTypes = function() {
-          $scope.user.reportTypes = [];
-      };
-
+      
 
 
 
 
 
       $scope.Submit= function() {
-        console.log($scope.user.providers);
+       
+        let arr_of_prodivers = $scope.result.user.providers;
+        let chosenReportTypes =  ($scope.result.user.reportTypes);
+        console.log(Object.keys(chosenReportTypes));
+        let arr_of_chosenReportTypes = Object.keys(chosenReportTypes).map( (key) =>   chosenReportTypes[key] );
+        
+        arr_of_prodivers.forEach( (eachProvider, p_index) => {
+          arr_of_chosenReportTypes.forEach( (eachChosenReportType, rt_index) => {
+            if(p_index === rt_index) {
+              eachProvider.reportTypes = eachChosenReportType;
+            }
+          })
+        })
+
+        console.log(JSON.stringify(arr_of_prodivers));
+        
+        $scope.result = {};
+        allData.getGridData().then( (response) => {
+          $scope.providers = response.data;
+        })
       }
         
     })
