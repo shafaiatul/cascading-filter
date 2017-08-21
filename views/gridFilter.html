@@ -11,10 +11,10 @@
         </tr>
     </thead>
     <tbody style="color: #007db8;">
-        <tr ng-repeat="provider in providers ">
+        <tr ng-repeat="provider in providers track by $index">
             <td style="width:50%"> 
                     <label class="control control--checkbox">
-                        <input type="checkbox" data-checklist-model="user.providers" data-checklist-value="provider">
+                        <input type="checkbox" data-checklist-model="result.user.providers" data-checklist-value="provider">
                         <div class="control__indicator"></div>
                         {{provider.ProviderName}}
                     </label>
@@ -22,21 +22,48 @@
             </td>
             <td style="width: 50%">
                     <div class="dropdown" >
-                        <button class="dropbtn" ng-class="user.reportTypes.length === 0 ? 'shallow-select' : 'bright-select'">
-                            {{user.reportTypes.length === 0 ? '' : (user.reportTypes.length === provider.reportTypes.length ? 'All' : user.reportTypes.length)}} {{user.reportTypes.length === 0 ? 'Select...' : 'Selected'}}
+                        <button class="dropbtn">
+                            Select
                         </button>
+                        <span class="badge" style="margin: 0px 2px;" ng-repeat="reportId in result.user.reportTypes[provider.ProviderId]">
+                                {{ reportId === 1 ? 'Standard' : '' }}
+                                {{ reportId === 2 ? 'Floodlight' : '' }}
+                                {{ reportId === 3 ? 'Cross Device Conversion' : '' }}
+                        </span>
                         <div class="dropdown-content">
-                            <button class="checkAll-btn" ng-click="checkAllFilterTypes(provider.reportTypes)">check all</button>
-                            <button class="uncheckAll-btn" ng-click="uncheckAllFilterTypes()">uncheck all</button>
-                            <br>
-                            
-                            <label ng-repeat="reportType in provider.reportTypes track by $index" class="control control--checkbox">
-                                <input type="checkbox"  checklist-model="user.reportTypes" checklist-value="reportType.reportId">
+                           
+                            <label ng-repeat="reportType in provider.reportTypes" class="control control--checkbox">
+                                <input type="checkbox"   checklist-model="result.user.reportTypes[provider.ProviderId]" checklist-value="reportType.reportId">
                                 <div class="control__indicator"></div>
-                                {{reportType.type}}
+                                    {{reportType.type}}
                             </label>
                         </div>
                     </div>
+                   
             </td>
+        </tr>
 </table>
-<button  type="button" class="btn btn-primary" ng-click="Submit()" >Submit</button>
+
+<div style="display: flex; justify-content: space-between;">
+    <div>
+        <label>Start Date:</label>&nbsp;
+        <input kendo-date-picker
+                ng-model="result.startDateString"
+                k-ng-model="result.startDateObject"
+                data-k-format="'yyyy-MM-dd'"
+                k-on-change="startDateChanged(kendoEvent)" />
+    </div>
+    <div>
+        <label>End Date:</label>&nbsp;
+        <input kendo-date-picker
+                ng-model="result.endDateString"
+                k-ng-model="result.endDateObject"
+                data-k-format="'yyyy-MM-dd'"
+                k-on-change="endDateChanged(kendoEvent)" />
+    </div>
+    <div>
+        <button  type="button" class="btn btn-primary" ng-click="Submit()" >Submit</button>   
+    </div>
+</div>
+
+<pre>{{result | json}}</pre>
